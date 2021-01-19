@@ -1,0 +1,56 @@
+app:
+  name: ginx-pro
+  env: pro
+  debug: true
+  port: 9000
+  url: http://localhost
+
+db:
+  default:
+    type: mysql
+    host: 106.15.190.85
+    port: 3306
+    username: ginx
+    password: kCBpRob3$Vv8
+    database: demo
+    charset: utf8
+    maxidle: 5
+    maxactive: 5
+    maxlifetime: 5
+#  ac:
+#    type: mysql
+#    host: 127.0.0.1
+#    port: 3306
+#    username: root
+#    password: 123456
+#    database: ac
+#    charset: utf8
+#    maxidle: 5
+#    maxactive: 5
+#    maxlifetime: 5
+
+redis:
+  default:
+    host: 172.18.1.100
+    password: 123456
+    port: 6379
+    db: 0
+    maxidle: 5  #最大空闲数
+    maxactive: 15 #最大连接数
+    idletimeout: 5 #闲置超时 单位秒
+    maxconnlifetime: 5 #连接超时 单位秒
+#  ac:
+#    host: 127.0.0.1
+#    password: 654321
+#    port: 7379
+#    db: 1
+#    maxidle: 5  #最大空闲数
+#    maxactive: 15 #最大连接数
+#    idletimeout: 5 #闲置超时 单位秒
+#    maxconnlifetime: 5 #连接超时 单位秒
+
+memcached:
+  host: 172.18.1.101
+  port: 11211
+  username: ''
+  password: ''

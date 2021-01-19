@@ -1,0 +1,23 @@
+.idea/
+/web/node_modules
+/web/dist
+
+.DS_Store
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+go.sum
+*.iml
