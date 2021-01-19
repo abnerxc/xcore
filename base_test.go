@@ -2,7 +2,7 @@ package xcore
 
 import (
 	"fmt"
-	"github.com/abnerxc/xcore/library/global"
+	"github.com/abnerxc/xcore/global"
 	"gorm.io/plugin/dbresolver"
 	"testing"
 	"time"

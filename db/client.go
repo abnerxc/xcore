@@ -1,7 +1,7 @@
 package db
 
 import (
-	"github.com/abnerxc/xcore/library/global"
+	"github.com/abnerxc/xcore/global"
 	"github.com/mitchellh/mapstructure"
 	"gorm.io/driver/mysql"
 	"gorm.io/driver/postgres"

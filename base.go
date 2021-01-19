@@ -2,9 +2,9 @@ package xcore
 
 import (
 	"fmt"
-	"github.com/abnerxc/xcore/library/cache"
-	"github.com/abnerxc/xcore/library/db"
-	"github.com/abnerxc/xcore/library/global"
+	"github.com/abnerxc/xcore/cache"
+	"github.com/abnerxc/xcore/db"
+	"github.com/abnerxc/xcore/global"
 	"github.com/spf13/viper"
 	"os"
 	"path/filepath"

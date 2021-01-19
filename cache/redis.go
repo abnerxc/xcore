@@ -2,7 +2,7 @@ package cache
 
 import (
 	"fmt"
-	"github.com/abnerxc/xcore/library/global"
+	"github.com/abnerxc/xcore/global"
 	"github.com/go-redis/redis"
 )
 
