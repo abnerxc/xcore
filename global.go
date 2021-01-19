@@ -1,4 +1,4 @@
-package global
+package xcore
 
 import (
 	"github.com/go-redis/redis"

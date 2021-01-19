@@ -1,7 +1,6 @@
-package db
+package xcore
 
 import (
-	"github.com/abnerxc/xcore/global"
 	"github.com/mitchellh/mapstructure"
 	"gorm.io/driver/mysql"
 	"gorm.io/driver/postgres"
@@ -28,7 +27,7 @@ var dconfig *Dconfig
 
 //设置链接的数据源
 func NewDBClient() *gorm.DB {
-	dataSource := global.G_VP.GetStringMap("datasource")
+	dataSource := G_VP.GetStringMap("datasource")
 	_ = mapstructure.Decode(dataSource["default"], &dconfig)
 	db, err := gorm.Open(getDriver(dconfig.Type, dconfig.Dsn["slave"]), &gorm.Config{})
 	if err != nil {
