@@ -49,6 +49,10 @@ func TestDb(t *testing.T) {
 	defer CloseRes()
 }
 
+func TestLog() {
+
+}
+
 func TestRedis(t *testing.T) {
 	Bootstrap("dev")
 	fmt.Println(G_REDIS)
