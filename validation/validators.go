@@ -22,8 +22,6 @@ import (
 	"sync"
 	"time"
 	"unicode/utf8"
-
-	"github.com/beego/beego/v2/core/logs"
 )
 
 // CanSkipFuncs will skip valid if RequiredFirst is true and the struct field's value is empty
@@ -94,7 +92,7 @@ func SetDefaultMessage(msg map[string]string) {
 			MessageTmpls[name] = msg[name]
 		}
 	})
-	logs.Warn(`you must SetDefaultMessage at once`)
+	fmt.Println(`you must SetDefaultMessage at once`)
 }
 
 // Validator interface
