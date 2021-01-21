@@ -2,7 +2,7 @@ package xcore
 
 import (
 	"github.com/go-redis/redis"
-	"github.com/op/go-logging"
+	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"gorm.io/gorm"
 )
@@ -13,5 +13,5 @@ var (
 	G_DB      *gorm.DB
 	G_REDIS   *redis.Client
 	G_VP      *viper.Viper
-	G_LOG     *logging.Logger
+	G_LOG     *logrus.Logger
 )

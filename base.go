@@ -2,6 +2,7 @@ package xcore
 
 import (
 	"fmt"
+	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"os"
 	"path/filepath"
@@ -16,14 +17,13 @@ func Bootstrap(env string) {
 	}
 	//初始化配置读取
 	initConfig()
+	//初始化log
+	initLog()
 	//初始化数据库配置
-	if G_VP.IsSet("datasource") {
-		initDB()
-	}
+	initDB()
 	//初始化redis连接
-	if G_VP.IsSet("redis") {
-		initRedis()
-	}
+	initRedis()
+
 }
 
 //资源关闭
@@ -54,12 +54,24 @@ func initConfig() {
 
 //初始化数据库配置
 func initDB() {
-	fmt.Println("init db .....")
-	G_DB = NewDBClient()
+	if G_VP.IsSet("datasource") {
+		fmt.Println("init db .....")
+		G_DB = NewDBClient()
+	}
 }
 
 //初始化数据库配置
 func initRedis() {
-	fmt.Println("init redis .....")
-	G_REDIS = NewRedis()
+	if G_VP.IsSet("redis") {
+		fmt.Println("init redis .....")
+		G_REDIS = NewRedis()
+	}
+}
+
+//初始化日志服务
+func initLog() {
+
+	fmt.Println("init log .....")
+	G_LOG = logrus.New()
+
 }
