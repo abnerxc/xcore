@@ -13,7 +13,8 @@ func init() {
 	if err != nil {
 		panic("获取路径错误")
 	}
-	G_APP_PATH = filepath.Dir(dir)
+	//G_APP_PATH = filepath.Dir(dir) //当前包上一级路径
+	G_APP_PATH = dir
 }
 
 //启动引导
