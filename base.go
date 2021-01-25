@@ -2,11 +2,19 @@ package xcore
 
 import (
 	"fmt"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"os"
 	"path/filepath"
 )
+
+func init() {
+	fmt.Println("base init")
+	dir, err := os.Getwd()
+	if err != nil {
+		panic("获取路径错误")
+	}
+	G_APP_PATH = dir
+}
 
 //启动引导
 func Bootstrap(env string) {
@@ -33,17 +41,13 @@ func CloseRes() {
 
 //初始化配置文件
 func initConfig() {
-	fmt.Println("init config .....")
-	dir, err := os.Getwd()
-	if err != nil {
-		panic("获取路径错误")
-	}
+	fmt.Println("init config .....", G_APP_PATH)
 	//读取yaml文件
 	v := viper.New()
 	//设置读取的配置文件
 	v.SetConfigName(G_APP_ENV)
 	//go,bin运行的路径
-	v.AddConfigPath(filepath.FromSlash(dir + "/config/"))
+	v.AddConfigPath(filepath.FromSlash(G_APP_PATH + "/config/"))
 	//设置配置文件类型
 	v.SetConfigType("yaml")
 	if err := v.ReadInConfig(); err != nil {
@@ -72,6 +76,5 @@ func initRedis() {
 func initLog() {
 
 	fmt.Println("init log .....")
-	G_LOG = logrus.New()
 
 }

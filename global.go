@@ -9,9 +9,10 @@ import (
 
 //全局变量
 var (
-	G_APP_ENV string
-	G_DB      *gorm.DB
-	G_REDIS   *redis.Client
-	G_VP      *viper.Viper
-	G_LOG     *logrus.Logger
+	G_APP_ENV  string //全局环境
+	G_APP_PATH string //全局APP路径
+	G_DB       *gorm.DB
+	G_REDIS    *redis.Client
+	G_VP       *viper.Viper
+	G_LOG      *logrus.Logger
 )
