@@ -2,13 +2,18 @@ package xcore
 
 import (
 	"fmt"
+	"github.com/sirupsen/logrus"
 	"gorm.io/plugin/dbresolver"
+	"os"
 	"testing"
 	"time"
 )
 
-func TestDb(t *testing.T) {
+func TestMain(m *testing.M) {
 	Bootstrap("dev")
+}
+
+func TestDb(t *testing.T) {
 
 	type Test struct {
 		Id   string
@@ -49,8 +54,18 @@ func TestDb(t *testing.T) {
 	defer CloseRes()
 }
 
-func TestLog() {
-
+func TestLog(t *testing.T) {
+	G_LOG.Out = os.Stdout
+	G_LOG.Formatter = &logrus.JSONFormatter{}
+	G_LOG.WithFields(logrus.Fields{
+		"animal": "walrus",
+		"size":   10,
+	}).Info("A group of walrus emerges from the ocean")
+	//G_LOG.SetFormatter(&logrus.JSONFormatter{})
+	//G_LOG.SetReportCaller(true)
+	//G_LOG.SetOutput(os.Stdout)
+	//G_LOG.SetLevel(logrus.WarnLevel)
+	//G_LOG.WithField("a-test","whahah").Info("a test log")
 }
 
 func TestRedis(t *testing.T) {

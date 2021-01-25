@@ -5,16 +5,16 @@ app:
   port: 8080
   url: http://localhost
 
-datasource:
-  default: #默认数据库，必须存在
-    type: mysql
-    dsn:
-      master: root:123456@tcp(127.0.0.1:13307)/m?charset=utf8mb4&parseTime=True&loc=Local
-      slave:  root:123456@tcp(127.0.0.1:13307)/m?charset=utf8mb4&parseTime=True&loc=Local
-    maxidleconns: 10 #设置空闲连接池中连接的最大数量
-    maxopenconns: 5 #设置打开数据库连接的最大数量
-    maxidletime: 5 #设置连接可复用的最大时间
-    maxlifetime: 5 #设置连接连接的最大时间
+#datasource:
+#  default: #默认数据库，必须存在
+#    type: mysql
+#    dsn:
+#      master: root:123456@tcp(127.0.0.1:13307)/m?charset=utf8mb4&parseTime=True&loc=Local
+#      slave:  root:123456@tcp(127.0.0.1:13307)/m?charset=utf8mb4&parseTime=True&loc=Local
+#    maxidleconns: 10 #设置空闲连接池中连接的最大数量
+#    maxopenconns: 5 #设置打开数据库连接的最大数量
+#    maxidletime: 5 #设置连接可复用的最大时间
+#    maxlifetime: 5 #设置连接连接的最大时间
 #  activity: #活动库1
 #    type: mysql
 #    dsn:
@@ -35,3 +35,7 @@ memcached:
   port: 11211
   username: ''
   password: ''
+
+log: #日志
+  filePath: '' #路径日志，如果路径为空打印控制台
+  elastic: '' #发送到es的地址，如果路径为不执行传送

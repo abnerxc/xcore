@@ -1,1 +1,5 @@
 package xcore
+
+func logHook() {
+
+}
