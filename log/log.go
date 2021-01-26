@@ -17,7 +17,7 @@ func NewLfsHook(filePath string) logrus.Hook {
 		rotate.WithRotationTime(24*time.Hour),
 		// 设置最大保存时间(30天)
 		rotate.WithMaxAge(30*24*time.Hour),
-		rotate.WithRotationSize(5),
+		rotate.WithRotationSize(1024*1024),
 	)
 	errorWriter, err := rotate.New(
 		// 分割后的文件名称
@@ -42,7 +42,7 @@ func NewLfsHook(filePath string) logrus.Hook {
 		logrus.FatalLevel: errorWriter,
 		logrus.PanicLevel: errorWriter,
 	}
-	lfsHook := lfshook.NewHook(writeMap, new(LogFormatter))
+	lfsHook := lfshook.NewHook(writeMap, &LogFormatter{})
 
 	return lfsHook
 }

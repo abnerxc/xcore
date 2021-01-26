@@ -2,7 +2,6 @@ package log
 
 import (
 	"bytes"
-	"encoding/json"
 	"fmt"
 	"github.com/sirupsen/logrus"
 	"path/filepath"
@@ -25,10 +24,7 @@ func (s *LogFormatter) Format(entry *logrus.Entry) ([]byte, error) {
 		line = entry.Caller.Line
 	}
 	level := strings.ToUpper(entry.Level.String())
-
-	content, _ := json.Marshal(entry.Data)
-
-	msg := fmt.Sprintf("%s [%s] [GOID:%d] [%s:%d] #msg:%s #content:%v\n", timestamp, level, getGID(), file, line, entry.Message, string(content))
+	msg := fmt.Sprintf("%s [%s] [GOID:%d] [%s:%d] #msg:%s #content:%v\n", timestamp, level, getGID(), file, line, entry.Message, entry.Data)
 	return []byte(msg), nil
 }
 
