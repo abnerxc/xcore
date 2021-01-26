@@ -2,13 +2,16 @@ package main
 
 import (
 	"github.com/abnerxc/xcore"
-	"github.com/sirupsen/logrus"
-	"os"
 )
 
 func main() {
 	xcore.Bootstrap("dev")
-	xcore.G_LOG.Out = os.Stdout
-	xcore.G_LOG.Formatter = &logrus.JSONFormatter{}
-	xcore.G_LOG.WithFields(logrus.Fields{}).Info("A group of walrus emerges from the ocean")
+	data := make(map[string]interface{})
+	data["ip"] = "10.10.10.1"
+	data["url"] = "http://www.baidu.com"
+	data["method"] = "GET"
+	data["proto"] = "http"
+	data["request"] = "ffffff"
+	data["header"] = "mobile"
+	xcore.G_LOG.WithFields(data).Info()
 }
