@@ -79,8 +79,8 @@ func initRedis() {
 func initLog() {
 	fmt.Println("init log .....")
 	G_LOG = logrus.New()
-	logFileName := "zxc"                                           //日志文件名
-	logDirPath := filepath.Join(G_APP_PATH, "/main/", logFileName) //日志路径
+	logFileName := "zxc"                                               //日志文件名
+	logDirPath := filepath.Join(G_APP_PATH, "/main/log/", logFileName) //日志路径
 	file, err := os.OpenFile(logDirPath, os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
 		G_LOG.Errorf("open log file err", err)

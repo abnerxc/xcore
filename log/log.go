@@ -11,17 +11,18 @@ func NewLfsHook(filePath string) logrus.Hook {
 	infoWriter, err := rotate.New(
 		// 分割后的文件名称
 		filePath+".%Y%m%d.info.log",
-		// 生成软链，指向最新日志文件
+		//// 生成软链，指向最新日志文件
 		rotate.WithLinkName(filePath),
 		// 设置日志切割时间间隔(1天)
 		rotate.WithRotationTime(24*time.Hour),
 		// 设置最大保存时间(30天)
 		rotate.WithMaxAge(30*24*time.Hour),
+		rotate.WithRotationSize(5),
 	)
 	errorWriter, err := rotate.New(
 		// 分割后的文件名称
 		filePath+".%Y%m%d.error.log",
-		// 生成软链，指向最新日志文件
+		//// 生成软链，指向最新日志文件
 		rotate.WithLinkName(filePath),
 		// 设置日志切割时间间隔(1天)
 		rotate.WithRotationTime(24*time.Hour),
