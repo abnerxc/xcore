@@ -27,7 +27,7 @@ var dconfig *Dconfig
 
 //设置链接的数据源
 func NewDBClient() *gorm.DB {
-	dataSource := G_VP.GetStringMap("datasource")
+	dataSource := G_CFG.GetStringMap("datasource")
 	_ = mapstructure.Decode(dataSource["default"], &dconfig)
 	db, err := gorm.Open(getDriver(dconfig.Type, dconfig.Dsn["slave"]), &gorm.Config{})
 	if err != nil {

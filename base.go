@@ -56,12 +56,12 @@ func initConfig() {
 	if err := v.ReadInConfig(); err != nil {
 		panic(err)
 	}
-	G_VP = v
+	G_CFG = v
 }
 
 //初始化数据库配置
 func initDB() {
-	if G_VP.IsSet("datasource") {
+	if G_CFG.IsSet("datasource") {
 		fmt.Println("init db .....")
 		G_DB = NewDBClient()
 	}
@@ -69,7 +69,7 @@ func initDB() {
 
 //初始化数据库配置
 func initRedis() {
-	if G_VP.IsSet("redis") {
+	if G_CFG.IsSet("redis") {
 		fmt.Println("init redis .....")
 		G_REDIS = NewRedis()
 	}
@@ -79,10 +79,10 @@ func initRedis() {
 func initLog() {
 	fmt.Println("init log .....")
 	G_LOG = logrus.New()
-	logFileName := G_VP.GetString("app.name")
+	logFileName := G_CFG.GetString("app.name")
 	logDirPath := ""
-	if G_VP.IsSet("log.filePath") && G_VP.GetString("log.filePath") != "" {
-		logDirPath = filepath.Join(G_VP.GetString("log.filePath"), logFileName) //日志路径
+	if G_CFG.IsSet("log.filePath") && G_CFG.GetString("log.filePath") != "" {
+		logDirPath = filepath.Join(G_CFG.GetString("log.filePath"), logFileName) //日志路径
 	} else {
 		logDirPath = filepath.Join(G_APP_PATH, "/store/log/", logFileName) //日志路径
 	}

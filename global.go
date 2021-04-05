@@ -13,6 +13,6 @@ var (
 	G_APP_PATH string //全局APP路径
 	G_DB       *gorm.DB
 	G_REDIS    *redis.Client
-	G_VP       *viper.Viper
+	G_CFG      *viper.Viper
 	G_LOG      *logrus.Logger
 )

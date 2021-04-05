@@ -7,9 +7,9 @@ import (
 
 func NewRedis() *redis.Client {
 	client := redis.NewClient(&redis.Options{
-		Addr:     G_VP.GetString("redis.host"),
-		Password: G_VP.GetString("redis.password"), // no password set
-		DB:       G_VP.GetInt("redis.db"),          // use default DB
+		Addr:     G_CFG.GetString("redis.host"),
+		Password: G_CFG.GetString("redis.password"), // no password set
+		DB:       G_CFG.GetInt("redis.db"),          // use default DB
 	})
 	pong, err := client.Ping().Result()
 	if err != nil {
